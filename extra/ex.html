@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+<body>
+    <div id="data"></div>
+    <div id="op"></div>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <div id="result"></div>
+    <h1>this is result</h1>
+    <div id="demo"></div>
+    <button class="btn">on click</button>
+    <script>
+        const array=['item1','item2','item3']
+        const [var1,,var3]=array;
+        console.log(var1,var3)
+        // swaping with array
+        let v1=2;
+        let v2=3;
+       [v1,v2]=[v2,v1]
+       console.log(v1,v2)
+       //destructuring obj
+     const obj={
+        id:'200222',
+        name:'emp1',
+        accessories:{
+            e1:'pc'
+        }
+       }
+       const {id,name,accessories:{e1}}=obj
+       console.log(id,name,e1)
+       function f1({id,name,accessories:{e1}})
+       {
+        console.log(id,name,e1)
+       }
+       f1(obj)
+
+       var n1=2;
+       var n2=5;
+       var s=`the value of variable1 is ${n1} and variable2 is ${n2}`
+       console.log(s)
+       //dynamic template strings
+       var h1=6
+       var h2='h2'
+       var h3="string"
+       document.getElementById("data").innerHTML=`
+       <h1>the data in h1 variable is ${h1}</h1>
+       <h2>this is ${h2} tag</h2>
+       <h3>${h3}</h3>
+       `
+       var c1="new"
+       var c2="bike"
+       const santance=quote`our grandfather got ${c1} ${c2}`
+       document.getElementById("op").innerHTML=santance;
+       function quote(text,...vars)
+       {
+        console.log({text,vars})
+        const text1=text.map((data,i)=>{
+            return `${data}<strong >${vars[i]||""}</strong>`
+        })
+        return text1.join("");
+       }
+       //arrow function
+       const a=val=>val*2;
+       var d=a(2)
+       console.log(d)
+       //return object
+       const per=()=>({name:'pre1',age:21})
+       var obj1=per()
+       console.log(obj1)
+       //call back function
+       const arr=[34,45,12,34,1,43,64]
+       var gt=arr.filter(num=>num>50)
+       console.log(gt)
+       //function on click
+       const bt=document.querySelector('.btn')
+       bt.addEventListener('click',()=>console.log("clicked button"))
+
+       const person={
+        name:'employee',
+        age:23,
+        method1:function (){
+            console.log(this)
+          setTimeout( ()=>{
+            console.log(`the person is ${this.name} and his age is${this.age}`)
+           },3000)
+        }
+       }
+       person.method1()
+
+       const btn=document.querySelector('.btn');
+       btn.addEventListener('click',function (){
+        this.style.color='green';
+       })
+       //for of example
+       const batch=[23,23,32,23,42,56,67]
+       for(val of batch)
+       {
+        if(val===23)
+        {
+            console.log("duplicated")
+        }
+       }
+       //rest operator basics
+       const str="this is a string"
+       const atos=[...str]
+       const a1=[1,2,3]
+       const a2=[32,34,45]
+       const a3=[...a2,str,...a1]
+       console.log(a3)
+       //get same element
+       const w=document.querySelectorAll('p');
+       const t=[...w].map(item=>item.textContent).join("")
+       document.getElementById("result").innerHTML=t;
+       var an=23
+       //array from example
+       const str3="this is new string"
+       const af=[]=Array.from(str3)
+       console.log(af)
+    </script>
+</body>
+</html>

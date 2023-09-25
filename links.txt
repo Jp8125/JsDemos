@@ -1,0 +1,3 @@
+https://stackblitz.com/edit/vitejs-vite-lwyjmc?file=index.html
+https://stackblitz.com/edit/vitejs-vite-6zcsmv?file=index.html - dropdown
+https://stackblitz.com/edit/vitejs-vite-m3wogc?file=p.json -fetch local json file

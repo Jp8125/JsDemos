@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+<body>
+    <input type="text" id="str" placeholder="enter a string" />
+    <button id="clk">click</button>
+</body>
+<script>
+    async function f1() {
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(resolve("hello"), 2000);
+        });
+        let p2 = new Promise((resolve, reject) => {
+            setTimeout(resolve("hel"), 7000);
+        });
+        let h1 = await p1;
+        let h2 = await p2;
+        return [h1, h2];
+    }
+    let ret = f1();
+    console.log(ret);
+    const v = () => {
+        let str = document.getElementById("str").value;
+        if (str == "") {
+            alert("enter a string");
+            document.getElementById("str").focus();
+        } else {
+            let rev = str.split("").reverse().join("");
+            alert(`the reverse string is ${rev}`);
+        }
+        const arr = [1, 3, 4, 7, 8, 9, 0, 2, 4, 6, 78, 90, 345];
+        let big = arr.filter((num) => num > 14);
+        console.log(big);
+    };
+    var btn = document.getElementById("clk");
+    btn.addEventListener("click", v);
+    btn.addEventListener("click", reset());
+</script>
+
+</html>
